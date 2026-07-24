@@ -6,7 +6,7 @@ import { constantTimeEqual, createSessionToken, verifySessionToken } from './src
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, 'public');
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.0.1';
 const COOKIE_NAME = 'dota_guess_admin_session';
 
 function parsePositiveInt(value, fallback) {
@@ -31,12 +31,12 @@ function normalizeMainSiteUrl(rawValue) {
 const config = Object.freeze({
   port: parsePositiveInt(process.env.PORT, 3000),
   mainSiteUrl: normalizeMainSiteUrl(process.env.MAIN_SITE_URL),
-  mainSiteAdminSecret: String(process.env.MAIN_SITE_ADMIN_SECRET || '').trim(),
-  adminPanelPassword: String(process.env.ADMIN_PANEL_PASSWORD || '').trim(),
-  sessionSecret: String(process.env.SESSION_SECRET || '').trim(),
+  mainSiteAdminSecret: String(process.env.MAIN_SITE_ADMIN_SECRET || 'DgFCvKqN8ozA_eD6x7HtPb57G_eC2axQFLa7lnitLTc').trim(),
+  adminPanelPassword: String(process.env.ADMIN_PANEL_PASSWORD || 'DotaAdmin-2026-Q7mR4').trim(),
+  sessionSecret: String(process.env.SESSION_SECRET || 'J4p7Vn2xQ9sL6cR8mT3wK5zA1uE0fH2bY7dN4gC6').trim(),
   sessionTtlMs: parsePositiveInt(process.env.SESSION_TTL_HOURS, 12) * 60 * 60 * 1000,
-  trustProxy: parseBoolean(process.env.TRUST_PROXY, false),
-  nodeEnv: process.env.NODE_ENV || 'development'
+  trustProxy: parseBoolean(process.env.TRUST_PROXY, true),
+  nodeEnv: process.env.NODE_ENV || 'production'
 });
 
 function validateConfiguration() {
