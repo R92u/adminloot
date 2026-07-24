@@ -1,0 +1,15 @@
+{
+  "name": "dota-match-guess-admin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Отдельная защищённая админ-панель для Dota Match Guess.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  }
+}
